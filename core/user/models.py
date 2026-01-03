@@ -10,6 +10,7 @@ class User(AbstractUser):
     role = models.CharField(max_length=25, choices=ROLE_CHOICES, default="STUDENT")
 
     class Meta:
+        ordering = ["id"]
         verbose_name = "User"
         verbose_name_plural = "Users"
 
