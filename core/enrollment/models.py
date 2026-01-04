@@ -11,6 +11,7 @@ class Enrollment(models.Model):
         ordering = ["id"]
         verbose_name = "Enrollment"
         verbose_name_plural = "Enrollments"
+        unique_together = ("student", "subject")
 
     def __str__(self):
         return f"{self.student} ({self.subject})"
