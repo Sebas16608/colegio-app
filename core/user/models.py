@@ -13,7 +13,7 @@ class User(AbstractUser):
     is_solvent = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ["id"]
+        ordering = ["last_name", "first_name"]
         verbose_name = "User"
         verbose_name_plural = "Users"
 
