@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from API import SuperApiView
+from .models import Enrollment
+from .serializer import EnrollmentSerializer
 
-# Create your views here.
+class EnrollmentView(SuperApiView):
+    model = Enrollment
+    serializer_class = EnrollmentSerializer
+    filter_fields = ["id"]
