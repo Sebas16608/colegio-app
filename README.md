@@ -6,8 +6,15 @@ Incluye **microservicios** en TypeScript para mejorar escalabilidad y separar re
 ---
 
 ## 🛠️ Motivación
-El proyecto nace de la necesidad de manejar un sistema escolar de forma **modular y escalable**, permitiendo que cada rol (estudiante, maestro, admin) tenga sus propios flujos y funcionalidades.  
-Los microservicios permiten **no sobrecargar el backend principal** y mantener cada funcionalidad aislada.
+
+El proyecto nace de una **experiencia real** mientras **trabajo como maestro sustituto de computación**.  
+Quería crear una app para:
+
+- 📊 Llevar un registro completo de los datos de los estudiantes
+- 💾 Evitar perder información importante
+- 🏫 Gestionar roles de **estudiante, maestro y admin** de manera organizada
+- ⚡ Mantener el backend principal liviano usando **microservicios** para funciones específicas
+
 
 ---
 
