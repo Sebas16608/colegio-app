@@ -6,13 +6,13 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ["username", "first_name", "last_name", "email", "password"]
 
-        def create(self, validate_data):
+        def create(self, validated_data):
             user = User(
-                username = validate_data["username"],
-                first_name = validate_data["first_name"],
-                last_name = validate_data["last_name"],
-                email = validate_data["email"],                
+                username = validated_data["username"],
+                first_name = validated_data["first_name"],
+                last_name = validated_data["last_name"],
+                email = validated_data["email"],                
             )
-            user.set_password(validate_data["password"])
+            user.set_password(validated_data["password"])
             user.save()
             return user
