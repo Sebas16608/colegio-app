@@ -15,7 +15,7 @@ class UserView(APIView):
                 serializer = UserSerializer(user)
                 return Response(serializer.data, status=status.HTTP_200_OK)
             except User.DoesNotExist:
-                return Response()
+                return Response(notexist(), status=status.HTTP_404_NOT_FOUND)
         else:
             user = User.objects.all()
             serializer = UserSerializer(user, many=True)
