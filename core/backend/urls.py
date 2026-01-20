@@ -25,5 +25,5 @@ urlpatterns = [
     path("payments/", include("payments.urls")),
     path("subject/", include("subject.urls")),
     path("submission/", include("submission.urls")),
-    path("user", include("user.urls"))
+    path("user/", include("user.urls"))
 ]
