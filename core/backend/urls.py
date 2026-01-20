@@ -24,5 +24,6 @@ urlpatterns = [
     path("grade/", include("grade.urls")),
     path("payments/", include("payments.urls")),
     path("subject/", include("subject.urls")),
-    path("submission/", include("submission.urls"))
+    path("submission/", include("submission.urls")),
+    path("user", include("user.views"))
 ]
