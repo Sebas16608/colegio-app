@@ -20,7 +20,8 @@ Conversations.init({
 {
     sequelize,
     modelName: "Conversation",
-    freezeTableName: true
+    freezeTableName: true,
+    underscored: true
 }
 );
 
