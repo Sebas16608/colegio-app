@@ -27,8 +27,17 @@ const getConversationById = async (req: Request, res: Response) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({ 
-            message: 'Error del servidor' 
+            message: `Error del servidor ${error}` 
         });
     };
 };
 
+const postConversation = async (req: Request, res: Response) => {
+    try {
+        const { type } = req.body;
+        const conversation = await Conversations.create({ type });
+        return res.status(201).json(conversation);
+    } catch (err) {
+        res.status(400).json({ error: `Bad Request ${err}`})
+    }
+}
