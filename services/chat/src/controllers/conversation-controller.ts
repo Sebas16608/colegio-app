@@ -69,3 +69,5 @@ const deleteConversation = async (req: Request, res: Response) => {
         res.status(500).json({ error: `Internal Server Error ${error}` });
     }
 }
+
+export default { getAllConversations, getConversationById, postConversation, putConversation, deleteConversation};
