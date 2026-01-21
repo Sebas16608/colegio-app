@@ -38,6 +38,22 @@ const postConversation = async (req: Request, res: Response) => {
         const conversation = await Conversations.create({ type });
         return res.status(201).json(conversation);
     } catch (err) {
-        res.status(400).json({ error: `Bad Request ${err}`})
+        res.status(400).json({ error: `Bad Request ${err}`});
     }
 }
+
+const putConversation = async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params);
+        const conversation = await Conversations.findByPk(id);
+        if (!conversation) return res.status(404).json({ error: "Not Found" })
+
+        const { type } = req.body;
+        conversation.type = type ?? conversation.type;
+
+        await conversation.save()
+        return res.json(conversation);
+    } catch (err) {
+        return res.status(404).json({ error: "Bad Request" });
+    };
+};
