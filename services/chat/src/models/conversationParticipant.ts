@@ -15,7 +15,13 @@ ConversationParticipant.init({
     },
     conversation_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: "Conversation",
+            key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
     },
     user_id: {
         type: DataTypes.INTEGER,
