@@ -47,3 +47,5 @@ Message.init({
     underscored: true
 }
 );
+
+export default Message;
