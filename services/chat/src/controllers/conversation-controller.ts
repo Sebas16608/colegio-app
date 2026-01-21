@@ -57,3 +57,15 @@ const putConversation = async (req: Request, res: Response) => {
         return res.status(404).json({ error: "Bad Request" });
     };
 };
+
+const deleteConversation = async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params);
+        const conversation = await Conversations.findByPk(id);
+        if (!conversation) return res.status(404).json({ error: "Not Found" })
+
+        await conversation.destroy()
+    } catch (error) {
+        res.status(500).json({ error: `Internal Server Error ${error}` });
+    }
+}
