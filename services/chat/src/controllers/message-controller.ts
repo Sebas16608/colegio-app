@@ -62,3 +62,5 @@ const deleteMessage = async (req: Request, res: Response) => {
         return res.status(500).json({ error: `Internal Server Error ${error}`});
     }
 }
+
+export default { getAllMessages, getMessagesById, postMessage, putMessage, deleteMessage };
