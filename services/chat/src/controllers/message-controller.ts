@@ -33,3 +33,18 @@ const postMessage = async (req: Request, res: Response) => {
         return res.status(400).json({ error: `Bad Request ${error}` });
     }
 }
+
+const putMessage = async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params);
+        const message = await Message.findByPk(id);
+
+        if (!message) return res.status(404).json({ error: "Not Found" });
+
+        const { conversation_id, content, message_type, is_read } = req.body;
+        await message.save()
+        return res.json(message);
+    } catch (error) {
+        return res.status(400).json({ error: ` Bad Request ${error}`});
+    }
+}
