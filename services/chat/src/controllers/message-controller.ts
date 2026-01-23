@@ -1,0 +1,24 @@
+import Message from "models/message";
+import { Request, Response } from "express";
+
+const getAllMessages = async (req: Request, res: Response) => {
+    try {
+        const message = await Message.findAll();
+        return res.status(200).json(message)
+    } catch (error) {
+        return res.status(500).json({ error: `Internal Server Error ${error}`});
+    }
+}
+
+const getMessagesById = async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params);
+        const message = await Message.findByPk(id);
+        
+        if (!message) return res.status(404).json({ error: "Not Found"});
+
+        res.status(200).json(message);
+    } catch (error) {
+        return res.status(500).json({ error: `Internal Server Error ${error}`});
+    }
+}
