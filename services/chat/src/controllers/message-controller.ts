@@ -51,7 +51,7 @@ const putMessage = async (req: Request, res: Response) => {
 
 const deleteMessage = async (req: Request, res: Response) => {
     try {
-        const id = Numbre(req.params);
+        const id = Number(req.params);
         const message = await Message.findByPk(id);
 
         if (!message) return res.status(404).json({ error: "Not Found" });
