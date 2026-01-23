@@ -50,3 +50,17 @@ const putConversationParticipant = async (req: Request, res: Response) => {
        return res.status(500).json({ error: `Internal Server Error ${error}`});
     }
 }
+
+const deleteConversationParticipant = async (req: Request, res: Response) => {
+    try{
+        const id = Number(req.params);
+        const participant = await ConversationParticipant.findByPk(id);
+        
+        if (!participant) return res.status(404).json({ error: "Not Found" });
+
+        await participant.destroy();
+        return res.status(204).json({ error: "No Content" });
+    } catch (error) {
+        return res.status(500).json({ error: `Internal Server Error ${error}`});
+    }
+}
