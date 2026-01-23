@@ -6,7 +6,7 @@ const getAllConversations = async (req: Request, res: Response) => {
         const conversation = await Conversations.findAll();
         res.status(200).json(conversation);
     } catch (err) {
-        res.status(500).json({ error: err });
+        return res.status(500).json({ error: err });
     };
 };
 
@@ -38,7 +38,7 @@ const postConversation = async (req: Request, res: Response) => {
         const conversation = await Conversations.create({ type });
         return res.status(201).json(conversation);
     } catch (err) {
-        res.status(400).json({ error: `Bad Request ${err}`});
+        return res.status(400).json({ error: `Bad Request ${err}`});
     }
 }
 
@@ -65,8 +65,9 @@ const deleteConversation = async (req: Request, res: Response) => {
         if (!conversation) return res.status(404).json({ error: "Not Found" })
 
         await conversation.destroy()
+        return res.status(204).json({ error: "Not Content" });
     } catch (error) {
-        res.status(500).json({ error: `Internal Server Error ${error}` });
+        return res.status(500).json({ error: `Internal Server Error ${error}` });
     }
 }
 
