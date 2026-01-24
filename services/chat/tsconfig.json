@@ -1,28 +1,16 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-
-    "target": "ES2020",
+    "target": "ES2022",
     "module": "CommonJS",
-    "moduleResolution": "node10",
-
-    "rootDir": "src",
-    "outDir": "dist",
-
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-
-    // 👇 baseUrl NO está roto, solo está “amenazado”
-    "baseUrl": ".",
-    "paths": {
-      "@users/*": ["src/users/*"],
-      "@auth/*": ["src/auth/*"],
-      "@payments/*": ["src/payments/*"]
-    }
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
