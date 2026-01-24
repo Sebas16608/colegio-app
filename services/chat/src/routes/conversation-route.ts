@@ -8,3 +8,5 @@ router.get("/:id", getConversationById);
 router.post("/", postConversation);
 router.put("/:id", putConversation);
 router.delete("/:id", deleteConversation);
+
+export default router;
