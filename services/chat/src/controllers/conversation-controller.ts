@@ -1,4 +1,4 @@
-import Conversations from "models/conversation";
+import Conversations from "../models/conversation";
 import { Request, Response } from "express";
 
 const getAllConversations = async (req: Request, res: Response) => {
@@ -60,7 +60,7 @@ const putConversation = async (req: Request, res: Response) => {
 
 const deleteConversation = async (req: Request, res: Response) => {
     try {
-        const id = Number(req.params);
+        const id = Number(req.params.id);
         const conversation = await Conversations.findByPk(id);
         if (!conversation) return res.status(404).json({ error: "Not Found" })
 
@@ -71,4 +71,4 @@ const deleteConversation = async (req: Request, res: Response) => {
     }
 }
 
-export default { getAllConversations, getConversationById, postConversation, putConversation, deleteConversation};
+export { getAllConversations, getConversationById, postConversation, putConversation, deleteConversation};
