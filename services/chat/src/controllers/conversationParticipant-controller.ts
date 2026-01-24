@@ -1,4 +1,4 @@
-import ConversationParticipant from "models/conversationParticipant";
+import ConversationParticipant from "../models/conversationParticipant";
 import { Request, Response } from "express";
 
 const getAllConversationParticipant = async (req: Request, res: Response) => {
@@ -65,4 +65,4 @@ const deleteConversationParticipant = async (req: Request, res: Response) => {
     }
 }
 
-export default { getAllConversationParticipant, getParticipantById, postConversationParticipant, putConversationParticipant, deleteConversationParticipant};
+export { getAllConversationParticipant, getParticipantById, postConversationParticipant, putConversationParticipant, deleteConversationParticipant};
