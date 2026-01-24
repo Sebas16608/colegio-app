@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+
     "target": "ES2020",
     "module": "CommonJS",
+    "moduleResolution": "node10",
+
     "rootDir": "src",
     "outDir": "dist",
 
@@ -11,13 +15,13 @@
     "skipLibCheck": true,
 
     "resolveJsonModule": true,
-    "moduleResolution": "node",
 
-    "baseUrl": "src",
+    // 👇 baseUrl NO está roto, solo está “amenazado”
+    "baseUrl": ".",
     "paths": {
-      "@users/*": ["users/*"],
-      "@auth/*": ["auth/*"],
-      "@payments/*": ["payments/*"]
+      "@users/*": ["src/users/*"],
+      "@auth/*": ["src/auth/*"],
+      "@payments/*": ["src/payments/*"]
     }
   },
   "include": ["src/**/*"],
