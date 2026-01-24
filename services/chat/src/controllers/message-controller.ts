@@ -1,4 +1,4 @@
-import Message from "models/message";
+import Message from "../models/message";
 import { Request, Response } from "express";
 
 const getAllMessages = async (req: Request, res: Response) => {
@@ -63,4 +63,4 @@ const deleteMessage = async (req: Request, res: Response) => {
     }
 }
 
-export default { getAllMessages, getMessagesById, postMessage, putMessage, deleteMessage };
+export { getAllMessages, getMessagesById, postMessage, putMessage, deleteMessage };
